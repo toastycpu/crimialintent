@@ -1,53 +1,41 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-import { Platform } from 'react-native';
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+export const themes = {
+  white: {
+    background: "#ffffff",
+    text: "#000000",
+    header: "#e9e9e9ff", 
+    shadow: "#6A0DAD55",
   },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+  black: {
+    background: "#121212",
+    text: "#ffffff",
+    header: "#6A0DAD",
+    shadow: "#ffffff88", 
+  },
+  purple: {
+    background: "#e1ccf8ff",
+    text: "#fff",
+    header: "#6A0DAD",
+    shadow: "#6A0DAD55",
+  },
+  red: {
+    background: "#FFE5E5",
+    text: "#5A0000",
+    header: "#B00020",
+    shadow: "#B0002055",
+  },
+  green: {
+    background: "#E8F5E9",
+    text: "#003300",
+    header: "#2E7D32",
+    shadow: "#2E7D3255",
+  },
+  blue: {
+    background: "#bad0dfff",
+    text: "#ffffffff",
+    header: "#1565C0",
+    shadow: "#1565C055",
   },
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+export type ThemeName = keyof typeof themes;
+export const getThemeColors = (theme: ThemeName) => themes[theme];

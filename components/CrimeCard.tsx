@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import {MaterialCommunityIcons} from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Crime {
   id: string;
@@ -11,19 +11,13 @@ interface Crime {
 export default function CrimeCard({ crime }: { crime: Crime }) {
   return (
     <View style={styles.card}>
-      <View>
+      <View style={styles.textWrapper}>
         <Text style={styles.title}>{crime.title}</Text>
         <Text style={styles.date}>{crime.date}</Text>
       </View>
 
-      {/* If solved, show handcuff icon */}
       {crime.solved && (
-        <MaterialCommunityIcons
-          name="handcuffs"
-          size={22}
-          color="gray"
-          style={styles.icon}
-        />
+        <MaterialCommunityIcons name="handcuffs" size={22} color="gray" />
       )}
     </View>
   );
@@ -32,8 +26,7 @@ export default function CrimeCard({ crime }: { crime: Crime }) {
 const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "center", // vertical center
     backgroundColor: "white",
     padding: 16,
     marginVertical: 6,
@@ -45,16 +38,18 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
+  textWrapper: {
+    flex: 1,
+    paddingRight: 16, // keeps icon spaced from text
+  },
   title: {
     fontSize: 16,
     fontWeight: "600",
     marginBottom: 4,
+    flexWrap: "wrap",
   },
   date: {
     fontSize: 12,
     color: "#555",
-  },
-  icon: {
-    marginLeft: 10,
   },
 });

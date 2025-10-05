@@ -80,7 +80,7 @@ export default function CrimeDetail() {
         </View>
 
         {/* Save */}
-        <Button title="SAVE" color="#6A0DAD" onPress={() => router.push("/")} />
+        <Button title="SAVE" onPress={() => router.push("/")} />
       </View>
     </>
   );
